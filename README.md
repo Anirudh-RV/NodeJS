@@ -28,3 +28,5 @@ Go :
 JS part :
 1. Parser for text.
 2. Parser for Json.
+
+Clone the git, unzip the node_modules for it to work.
