@@ -1,0 +1,76 @@
+<html>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript">
+// http://localhost:4000/events/1
+
+// http://localhost:4000/api/hello
+
+// http://192.168.0.100:4000/events/1
+
+// http://worldtimeapi.org/api/ip/
+      function CallApi()
+      {
+
+				//fetch('http://localhost:4000/api/hello', { mode: 'no-cors' });
+
+				var url2 = 'http://localhost:4000/events/1';
+				var url1 = 'http://localhost:4000/api/hello';
+
+
+// this fetch gets using respone.text() to make everything into text.
+				fetch(url2)
+				  .then(function(response) {
+				    return response.text();
+				  })
+				  .then(function(myText) {
+				    console.log(myText);
+						document.getElementById("textresponse").innerHTML = 'Response Text is : </br>'+myText; // Displays output using window.alert()
+
+				  });
+
+// this fetch gets using response.json() to make everything into json.
+					fetch(url2)
+  .then(function(response) {
+    // The response is a Response instance.
+    // You parse the data into a useable format using `.json()`
+    return response.json();
+  }).then(function(data) {
+		var x = "";
+		for(i in data)
+			x = x + i +" : "+data[i] +"</br>"
+    // `data` is the parsed version of the JSON returned from the above endpoint.
+		document.getElementById("jsonresponse").innerHTML = 'Response JSON is : </br>'+x; // Displays output using window.alert()
+ // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+  });
+
+
+}
+  	</script>
+
+<script type="text/javascript">
+
+  function redirect()
+    {
+    window.location.href = "http://localhost:3000/page2.html";
+    }
+</script>
+
+<head>
+    <TITLE>HTML-1</TITLE>
+</head>
+
+<body>
+    <p id="heading"> This is HTML Page - 1 </p>
+    <button id="RedirectBtn" onclick="redirect()">Go to PAGE - 2</button>
+    <button id="ApiBtn" onclick="CallApi()"> API BUTTON</button>
+    <div id="response"></div>
+    <p id="textresponse"> </p>
+
+</br>
+		<p id="jsonresponse">  </p>
+
+
+
+</body>
+
+</html>
