@@ -23,7 +23,7 @@ Go :
 3. goapi2.go returns json objects.
 4. goapi.go return text response.
 5. go run goapi.go / go run goapi2.go
-6. Check using http://localhost:<port-number>/<name>
+6. Check using http://localhost: '<port-number>'/'<name>'
 
 JS part :
 1. Parser for text.
